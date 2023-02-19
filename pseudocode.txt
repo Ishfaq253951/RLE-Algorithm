@@ -1,0 +1,43 @@
+ _____  _      ______            _      _____  ____  _____  _____ _______ _    _ __  __ 
+|  __ \| |    |  ____|     /\   | |    / ____|/ __ \|  __ \|_   _|__   __| |  | |  \/  |
+| |__) | |    | |__       /  \  | |   | |  __| |  | | |__) | | |    | |  | |__| | \  / |
+|  _  /| |    |  __|     / /\ \ | |   | | |_ | |  | |  _  /  | |    | |  |  __  | |\/| |
+| | \ \| |____| |____   / ____ \| |___| |__| | |__| | | \ \ _| |_   | |  | |  | | |  | |
+|_|  \_\______|______| /_/    \_\______\_____|\____/|_|  \_\_____|  |_|  |_|  |_|_|  |_|
+
+Run Length Encoding
+        - It is a form of lossless data compression where a repeated string of adjacent characters are encoded in order to reduce a certain file size.
+        - Has 2 main values
+        - 1st value stores the number of time a character is repeated
+        - 2nd value stores the character code
+        - after decompression the original data should be obtained again without any data lossless
+
+STEPS TO SOLVING THIS PROBLEM
+1. Input string     --
+2. Loops through the string and counts the number of characters present
+3. stores a character on temp and loops through the string and count the number of times this character is repeated
+4. The previous process stops until a new character is found
+5. make a dictionary of the characters in the english alphabet with their respective custom code [a:- 01, b:- 02, c:- 03, ...]
+6. output compressed data
+7. ask to decompress data
+
+PSEUDOCODE
+
+DECLARE Sequence, Temporary: STRING
+DECLARE Length, Count: INTEGER
+
+OUTPUT "Enter your sequence of characters"
+INPUT Sequence
+Length := LENGTH(Sequence)
+Temporary := Sequence[0]
+FOR (i:= 0 TO (LENGTH))  
+    IF Sequence[i] = Temporary
+        THEN
+            Count := Count + 1
+        ELSE
+            OUTPUT Temporary, Count
+            Temporary := Sequence[i]
+            Count = 1
+    END IF
+NEXT
+OUTPUT Temporary, COUNT
